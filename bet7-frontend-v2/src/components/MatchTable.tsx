@@ -51,16 +51,22 @@ const MatchTable: React.FC<MatchTableProps> = ({ matches }) => {
                 )}
               </div>
               <div className="flex items-center gap-1">
-                {match.league.flag && (
+                {typeof match.league === "object" && match.league.flag && (
                   <img
                     src={`https://flagcdn.com/w20/${match.league.flag}.png`}
-                    alt={match.league.country}
+                    alt={
+                      typeof match.league === "object"
+                        ? match.league.country
+                        : ""
+                    }
                     width={14}
                     height={10}
                   />
                 )}
                 <span className="truncate max-w-[120px]">
-                  {match.league.name}
+                  {typeof match.league === "object"
+                    ? match.league.name
+                    : match.league}
                 </span>
               </div>
             </div>
@@ -95,7 +101,11 @@ const MatchTable: React.FC<MatchTableProps> = ({ matches }) => {
                 {odds ? (
                   Object.entries(odds).map(([label, value], index) => (
                     <div key={index} className="flex flex-col items-center">
-                      <OddsButton value={validateOdd(value)} />
+                      <OddsButton
+                        value={validateOdd(
+                          value as number | string | null | undefined
+                        )}
+                      />
                       <span className="text-[10px] text-gray-400">{label}</span>
                     </div>
                   ))

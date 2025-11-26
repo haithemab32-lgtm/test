@@ -45,11 +45,11 @@ import {
 } from "./hooks/useSocket";
 
 function App() {
-  const [viewType, setViewType] = useState<"LIVE" | "UPCOMING">("LIVE");
+  const [_viewType, setViewType] = useState<"LIVE" | "UPCOMING">("LIVE");
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [displayedLiveCount, setDisplayedLiveCount] = useState(5);
+  const [displayedLiveCount] = useState(5);
   const [showAllLive, setShowAllLive] = useState(false);
   const [showAllUpcoming, setShowAllUpcoming] = useState(false);
   const [selectedLeague, setSelectedLeague] = useState<string | null>(null);
@@ -770,9 +770,9 @@ function App() {
 
   // Écouter les événements personnalisés pour les matchs qui commencent depuis UpcomingMatches
   useEffect(() => {
-    const handleMatchStartedFromUpcoming = async (event: Event) => {
-      const customEvent = event as CustomEvent<{ matchIds: string[] }>;
-      const { matchIds } = customEvent.detail;
+    const handleMatchStartedFromUpcoming = async (_event: Event) => {
+      // const customEvent = event as CustomEvent<{ matchIds: string[] }>;
+      // const { matchIds } = customEvent.detail; // Non utilisé pour l'instant
 
       // Recharger les matchs live de manière silencieuse pour inclure les nouveaux matchs
       try {

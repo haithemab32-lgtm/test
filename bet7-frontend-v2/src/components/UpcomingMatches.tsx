@@ -380,7 +380,7 @@ export default function UpcomingMatches({
 
             // Initialiser collapsedLeagues avec toutes les ligues sauf les 3 premières
             const leagueNames = sortedLeagueEntries.map(([name]) => name);
-            const firstThreeLeagues = leagueNames.slice(0, 3);
+            // const firstThreeLeagues = leagueNames.slice(0, 3);
             const remainingLeagues = leagueNames.slice(3);
 
             // Si c'est la première fois qu'on affiche, initialiser l'état

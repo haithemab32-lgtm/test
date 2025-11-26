@@ -34,10 +34,10 @@ const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
   });
 
   // Marchés supplémentaires (affichés avec le bouton "plus")
-  const additionalMarkets = allMarkets.filter(
-    (market) =>
-      !defaultMarkets.some((defaultMarket) => defaultMarket.key === market.key)
-  );
+  // const additionalMarkets = allMarkets.filter(
+  //   (market) =>
+  //     !defaultMarkets.some((defaultMarket) => defaultMarket.key === market.key)
+  // );
 
   return (
     <div className="bg-[#2a2a2a] rounded-lg shadow-lg p-4 mb-4 border border-gray-800 w-full">
@@ -169,7 +169,9 @@ const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
                     {Object.entries(
                       match.odds[market.key as keyof typeof match.odds] || {}
                     ).map(([label, value], index) => {
-                      const validatedValue = validateOdd(value);
+                      const validatedValue = validateOdd(
+                        value as number | string | null | undefined
+                      );
                       return (
                         <div
                           key={index}

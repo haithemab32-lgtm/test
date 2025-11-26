@@ -53,7 +53,7 @@ class SocketService {
     // Configurer onAny une seule fois pour le débogage (seulement pour les événements odds)
     if (!this.anyListenerSetup && this.socket) {
       try {
-        this.socket.onAny((eventName, ...args) => {
+        this.socket.onAny((eventName) => {
           // Log seulement les événements liés aux odds
           if (
             eventName.toLowerCase().includes("odds") ||

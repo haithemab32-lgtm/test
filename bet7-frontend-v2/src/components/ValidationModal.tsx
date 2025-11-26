@@ -1,4 +1,3 @@
-import React from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useOddsFormat } from "../contexts/OddsFormatContext";
 import { formatOdds } from "../utils/oddsFormatters";
@@ -39,15 +38,14 @@ export default function ValidationModal({
     validationResult.errors && validationResult.errors.length > 0;
 
   // Calculer le nouveau total des cotes
-  const calculateNewTotalOdds = () => {
-    if (!validationResult.changes || validationResult.changes.length === 0) {
-      return null;
-    }
-
-    // Cette fonction devrait être dans le contexte pour calculer avec les nouvelles cotes
-    // Pour l'instant, on affiche juste les changements
-    return null;
-  };
+  // const calculateNewTotalOdds = () => {
+  //   if (!validationResult.changes || validationResult.changes.length === 0) {
+  //     return null;
+  //   }
+  //   // Cette fonction devrait être dans le contexte pour calculer avec les nouvelles cotes
+  //   // Pour l'instant, on affiche juste les changements
+  //   return null;
+  // };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">

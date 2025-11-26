@@ -57,7 +57,7 @@ export default function LiveMatchesSection({
         return a.localeCompare(b);
       });
 
-      const firstThreeLeagues = sortedLeagueNames.slice(0, 3);
+      // const firstThreeLeagues = sortedLeagueNames.slice(0, 3);
       const remainingLeagues = sortedLeagueNames.slice(3);
 
       // Initialiser seulement si collapsedLeagues est vide

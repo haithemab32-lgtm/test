@@ -9,14 +9,14 @@ export const betslipLogger = {
   /**
    * Log un événement BetSlip
    */
-  log: (message: string, data?: any) => {
+  log: (_message: string, _data?: any) => {
     // Logs désactivés
   },
 
   /**
    * Log un warning BetSlip
    */
-  warn: (message: string, data?: any) => {
+  warn: (_message: string, _data?: any) => {
     // Logs désactivés
   },
 
@@ -30,35 +30,35 @@ export const betslipLogger = {
   /**
    * Log un succès BetSlip
    */
-  success: (message: string, data?: any) => {
+  success: (_message: string, _data?: any) => {
     // Logs désactivés
   },
 
   /**
    * Log un clic sur une cote
    */
-  click: (data: any) => {
+  click: (_data: any) => {
     // Logs désactivés
   },
 
   /**
    * Log la création d'un bet
    */
-  betCreated: (bet: any) => {
+  betCreated: (_bet: any) => {
     // Logs désactivés
   },
 
   /**
    * Log l'ajout d'un bet
    */
-  betAdded: (bet: any, total: number) => {
+  betAdded: (_bet: any, _total: number) => {
     // Logs désactivés
   },
 
   /**
    * Log les bets actuels
    */
-  currentBets: (bets: any[]) => {
+  currentBets: (_bets: any[]) => {
     // Logs désactivés
   },
 };

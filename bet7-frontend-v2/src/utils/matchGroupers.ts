@@ -28,7 +28,7 @@ export function groupMatchesByLeague(
   const grouped: Record<string, Match[]> = {};
   const nameMap = new Map<string, string>(); // Map normalisé -> nom original
 
-  matchesList.forEach((match, index) => {
+  matchesList.forEach((match) => {
     let leagueName: string;
 
     // Extraire le nom de la ligue

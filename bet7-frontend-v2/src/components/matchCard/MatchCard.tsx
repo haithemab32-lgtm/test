@@ -5,11 +5,7 @@ import { Match } from "./type";
 import { useTheme } from "../../contexts/ThemeContext";
 import { useBetSlip } from "../../contexts/BetSlipContext";
 import { betslipLogger } from "../../utils/betslipLogger";
-import {
-  validateOdd,
-  isLiveMatch,
-  isFinishedMatch,
-} from "../../utils/matchTransformers";
+import { validateOdd, isLiveMatch } from "../../utils/matchTransformers";
 
 interface MatchCardProps {
   match: Match;
@@ -212,10 +208,10 @@ const MatchCard: React.FC<MatchCardProps> = ({
   const getFilteredMarkets = () => {
     // Fonction pour normaliser un nom de marché (enlever les variantes comme "(1st Half)")
     // Mais on garde les variantes de temps pour les distinguer
-    const normalizeMarketName = (name: string): string => {
-      if (!name) return name;
-      return name.trim();
-    };
+    // const normalizeMarketName = (name: string): string => {
+    //   if (!name) return name;
+    //   return name.trim();
+    // };
 
     // Fonction pour obtenir le nom de base d'un marché (sans variantes de temps)
     const getBaseMarketName = (name: string): string => {
@@ -1473,7 +1469,13 @@ const MatchCard: React.FC<MatchCardProps> = ({
                                 ([label, value], index) => (
                                   <div key={index} className="w-full">
                                     <OddsButton
-                                      value={validateOdd(value)}
+                                      value={validateOdd(
+                                        value as
+                                          | number
+                                          | string
+                                          | null
+                                          | undefined
+                                      )}
                                       isExpanded={true}
                                       label={formatDisplayLabel(
                                         label,
@@ -1504,7 +1506,10 @@ const MatchCard: React.FC<MatchCardProps> = ({
                                           const bet = createBetFromMarket(
                                             market.key,
                                             label,
-                                            value,
+                                            typeof value === "number" ||
+                                              typeof value === "string"
+                                              ? value
+                                              : "locked",
                                             null
                                           );
                                           if (bet) {

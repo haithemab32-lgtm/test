@@ -128,19 +128,6 @@ const OddsButton: React.FC<OddsButtonProps> = ({
     });
   }
 
-  // Une cote est verrouillée si :
-  // - Elle est explicitement "locked"
-  // - Elle est null ou undefined
-  // - Elle est un nombre valide ET <= 1 (inférieur ou égal à 1)
-  const isLocked =
-    value === "locked" ||
-    value === null ||
-    value === undefined ||
-    (numericValue !== null &&
-      numericValue !== undefined &&
-      typeof numericValue === "number" &&
-      numericValue <= 1);
-
   // FORCER l'affichage de l'icône de cadenas si la valeur est <= 1
   // Vérifier AVANT de formater pour éviter tout affichage de valeur <= 1
   const shouldShowLock =

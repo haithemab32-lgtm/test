@@ -156,7 +156,7 @@ export async function fetchLeagueMatches(
 
     if (data.data && Array.isArray(data.data)) {
       return {
-        matches: data.data.map(transformApiDataToMatch),
+        matches: data.data.map((item) => transformApiDataToMatch(item)),
         count: data.count,
       };
     } else {
@@ -240,7 +240,9 @@ export async function fetchUpcomingMatches8H(
       };
     }
 
-    const transformed = matchesData.map(transformApiDataToMatch);
+    const transformed = matchesData.map((item) =>
+      transformApiDataToMatch(item)
+    );
 
     return {
       matches: transformed,
@@ -283,7 +285,7 @@ export async function fetchMatchesByDate(
 
     if (data.data && Array.isArray(data.data)) {
       return {
-        matches: data.data.map(transformApiDataToMatch),
+        matches: data.data.map((item) => transformApiDataToMatch(item)),
         count: data.count,
       };
     } else {
@@ -323,7 +325,7 @@ export async function fetchLeagueMatchesById(
 
     if (data.data && Array.isArray(data.data)) {
       return {
-        matches: data.data.map(transformApiDataToMatch),
+        matches: data.data.map((item) => transformApiDataToMatch(item)),
         count: data.count,
       };
     } else {

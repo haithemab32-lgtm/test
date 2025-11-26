@@ -1,6 +1,6 @@
 import React from "react";
 import { Match } from "./type";
-import { isLiveMatch, isFinishedMatch } from "../../utils/matchTransformers";
+import { isLiveMatch } from "../../utils/matchTransformers";
 
 interface MatchHeaderProps {
   match: Match;
@@ -31,15 +31,19 @@ const MatchHeader: React.FC<MatchHeaderProps> = ({ match }) => {
           </span>
         )}
         <div className="flex items-center text-sm text-gray-400">
-          <img
-            src={`https://flagcdn.com/w20/${match.league.flag}.png`}
-            alt={match.league.country}
-            width={20}
-            height={15}
-            className="mr-2"
-          />
+          {typeof match.league === "object" && match.league.flag && (
+            <img
+              src={`https://flagcdn.com/w20/${match.league.flag}.png`}
+              alt={typeof match.league === "object" ? match.league.country : ""}
+              width={20}
+              height={15}
+              className="mr-2"
+            />
+          )}
           <span>
-            {match.league.name} • {match.league.country}
+            {typeof match.league === "object"
+              ? `${match.league.name} • ${match.league.country}`
+              : match.league}
           </span>
         </div>
       </div>
