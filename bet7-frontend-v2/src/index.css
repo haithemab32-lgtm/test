@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import police */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* Variables et thèmes */
+:root {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-card: #f5f5f5;
+  --color-accent: #f5c518;
+  --color-accent-alt: #00d084;
+  --color-muted: #9ca3af;
+  --color-danger: #e63946;
+  --color-success: #00ff7f;
+  --font-sans: "Inter", Arial, Helvetica, sans-serif;
+  --color-header: #2e2e2e;
+}
+
+/* Thème Light (par défaut) */
+.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-card: #ffffff;
+  --text-primary: #171717;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --header-bg: #ffffff;
+  --header-text: #171717;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --accent-blue: #3b82f6;
+}
+
+/* Thème Dark */
+.dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --border-color: #374151;
+  --header-bg: #2a2a2a;
+  --header-text: #ffffff;
+  --card-bg: #2a2a2a;
+  --card-border: #374151;
+  --accent-blue: #3b82f6;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
+    --color-card: #1a1a1a;
+    --color-header: #2a2e2e;
+  }
+}
+
+/* Body global */
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+/* Classes utilitaires supplémentaires si besoin */
+.text-muted {
+  color: var(--color-muted);
+}
+.bg-card {
+  background-color: var(--color-card);
+}
+.text-accent {
+  color: var(--color-accent);
+}
+.bg-accent {
+  background-color: var(--color-accent);
+}
+.text-success {
+  color: var(--color-success);
+}
+.text-danger {
+  color: var(--color-danger);
+}
+
+/* Animations modernes pour les changements de cotes avec gradients et effets */
+@keyframes fade-gradient-up {
+  0% {
+    background: linear-gradient(
+      135deg,
+      rgba(16, 185, 129, 0.95) 0%,
+      rgba(5, 150, 105, 0.95) 100%
+    ) !important;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6),
+      0 0 40px rgba(16, 185, 129, 0.3) !important;
+    transform: scale(1.02);
+  }
+  50% {
+    background: linear-gradient(
+      135deg,
+      rgba(16, 185, 129, 0.9) 0%,
+      rgba(5, 150, 105, 0.9) 100%
+    ) !important;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5),
+      0 0 30px rgba(16, 185, 129, 0.25) !important;
+    transform: scale(1.01);
+  }
+  70% {
+    background: linear-gradient(
+      135deg,
+      rgba(16, 185, 129, 0.7) 0%,
+      rgba(5, 150, 105, 0.7) 100%
+    ) !important;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4),
+      0 0 20px rgba(16, 185, 129, 0.2) !important;
+    transform: scale(1);
+  }
+  100% {
+    background-color: #4b5563 !important; /* bg-gray-600 */
+    box-shadow: none !important;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-gradient-down {
+  0% {
+    background: linear-gradient(
+      135deg,
+      rgba(239, 68, 68, 0.95) 0%,
+      rgba(220, 38, 38, 0.95) 100%
+    ) !important;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 40px rgba(239, 68, 68, 0.3) !important;
+    transform: scale(1.02);
+  }
+  50% {
+    background: linear-gradient(
+      135deg,
+      rgba(239, 68, 68, 0.9) 0%,
+      rgba(220, 38, 38, 0.9) 100%
+    ) !important;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5),
+      0 0 30px rgba(239, 68, 68, 0.25) !important;
+    transform: scale(1.01);
+  }
+  70% {
+    background: linear-gradient(
+      135deg,
+      rgba(239, 68, 68, 0.7) 0%,
+      rgba(220, 38, 38, 0.7) 100%
+    ) !important;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4), 0 0 20px rgba(239, 68, 68, 0.2) !important;
+    transform: scale(1);
+  }
+  100% {
+    background-color: #4b5563 !important; /* bg-gray-600 */
+    box-shadow: none !important;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Classes d'animation modernes pour les changements de cotes */
+.animate-odds-gradient-up,
+button.animate-odds-gradient-up,
+button.animate-odds-gradient-up.bg-gray-600,
+button.animate-odds-gradient-up.hover\:bg-gray-500 {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.95) 0%,
+    rgba(5, 150, 105, 0.95) 100%
+  ) !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6), 0 0 40px rgba(16, 185, 129, 0.3) !important;
+  animation: fade-gradient-up 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: transform 0.2s ease-out !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+.animate-odds-gradient-down,
+button.animate-odds-gradient-down,
+button.animate-odds-gradient-down.bg-gray-600,
+button.animate-odds-gradient-down.hover\:bg-gray-500 {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.95) 0%,
+    rgba(220, 38, 38, 0.95) 100%
+  ) !important;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 40px rgba(239, 68, 68, 0.3) !important;
+  animation: fade-gradient-down 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: transform 0.2s ease-out !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Surcharge pour s'assurer que les styles sont appliqués avec plus de spécificité */
+button.animate-odds-gradient-up {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.95) 0%,
+    rgba(5, 150, 105, 0.95) 100%
+  ) !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6), 0 0 40px rgba(16, 185, 129, 0.3) !important;
+  animation: fade-gradient-up 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: transform 0.2s ease-out !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+button.animate-odds-gradient-down {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.95) 0%,
+    rgba(220, 38, 38, 0.95) 100%
+  ) !important;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), 0 0 40px rgba(239, 68, 68, 0.3) !important;
+  animation: fade-gradient-down 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: transform 0.2s ease-out !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Styles pour le thème light */
+.light button.animate-odds-gradient-up {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.9) 0%,
+    rgba(5, 150, 105, 0.9) 100%
+  ) !important;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.5),
+    0 0 30px rgba(16, 185, 129, 0.25) !important;
+}
+
+.light button.animate-odds-gradient-down {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.9) 0%,
+    rgba(220, 38, 38, 0.9) 100%
+  ) !important;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.5), 0 0 30px rgba(239, 68, 68, 0.25) !important;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
